@@ -1,0 +1,13 @@
+.time__font {
+    font-size: 12rem;
+}
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+.mb {
+    margin-bottom: -5rem
+}
+.greet__font {
+    font-size: 5rem;
+}
