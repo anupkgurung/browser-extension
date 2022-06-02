@@ -1,0 +1,28 @@
+.flex {
+    display: flex;
+}
+.flex__col {
+    flex-direction: column;
+}
+.weather_font {
+    font-size: 2rem;
+}
+.mt__1 {
+    margin-top: -1rem;
+}
+.jc__center
+{
+    justify-content: center;
+}
+.ai__center {
+    align-items: center;
+}
+.ml__auto {
+    margin-left: auto;
+}
+.icon__height {
+    height: 5rem;
+}
+.pd__rl {
+    padding: 0rem 1rem;
+}

@@ -6,3 +6,9 @@
 .border:focus {
      outline : none
 }
+.width {
+    width: 40%;
+}
+.font__size {
+    font-size: 2rem;
+}

@@ -15,12 +15,16 @@ export const getRandomPhoto = async (setRandomPicture) => {
 
 export const getWeatherData = async (latitude,longitude,setWeatherData) => {
     try {
-        await fetch(`${process.env.REACT_APP_WAETHER_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
-            .then(response => response.json())
-            .then(result => {
-                console.log(result)
-                setWeatherData(result)
-            })
+        let weather= JSON.parse(localStorage.getItem("weather"))
+        
+        setWeatherData(weather)
+        // await fetch(`${process.env.REACT_APP_WAETHER_API_URL}/weather/?lat=${latitude}&lon=${longitude}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
+        //     .then(response => response.json())
+        //     .then(result => {
+        //         console.log(result)
+        //         localStorage.setItem("weather",JSON.stringify(result))
+        //         setWeatherData(result)
+        //     })
    } catch (error) {
        console.log(error)
    }
