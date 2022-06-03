@@ -15,7 +15,7 @@ export const Time = ({name}) => {
     return (
         <>
             <div className={`${time.flex}`}>
-                <span className={`${time.time__font} ${time.mb}`}>{date.toLocaleTimeString().substring(0,8)}</span>
+                <span className={`${time.time__font} ${time.mb}`}>{date.toLocaleTimeString().substring(0,date.toLocaleTimeString().lastIndexOf(":"))}</span>
                 <span className={`${time.greet__font}`}>Good Evening {name}</span>
             </div>
         </>

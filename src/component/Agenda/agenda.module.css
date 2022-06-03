@@ -1,3 +1,11 @@
 .font__size {
     font-size: 2rem;
 }
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pointer {
+    cursor: pointer;
+}

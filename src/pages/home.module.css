@@ -26,3 +26,8 @@
 .pd__rl {
     padding: 0rem 1rem;
 }
+.main {
+    height:100vh;
+    background-repeat: no-repeat;
+    background-size: cover
+}

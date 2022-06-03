@@ -15,11 +15,19 @@ export const Home = () =>{
     const [weatherData,setWeatherData]=useState(null);
     const [randomPicture, setRandomPicture] = useState(null)
     const [name,setName] = useState(null);
+    const [task,setTask] = useState(null);
 
-    const captureKey = (e) => {
+    const setUserName = (e) => {
         let key = e.key
         if(key === 'Enter'){
             setName(e.target.value)
+        }
+    }
+
+    const setUserTask = (e) => {
+        let key = e.key
+        if(key === 'Enter'){
+            setTask(e.target.value)
         }
     }
    
@@ -41,7 +49,7 @@ export const Home = () =>{
 
     return (
         <>
-            <div className={`container-fluid ${home.flex} ${home.flex__col}`} style={{backgroundImage : `url(${randomPicture})`, height:'100vh'}}>
+            <div className={`container-fluid ${home.flex} ${home.flex__col} ${home.main}`} style={{backgroundImage : `url(${randomPicture})`}}>
                 <div className={`${home.flex} ${home.flex__col} ${home.pd__rl}`}>
                     <div className={`${home.flex} ${home.jc__center} ${home.ai__center}`}>
                         <span className={`${home.ml__auto}`}>
@@ -50,17 +58,16 @@ export const Home = () =>{
                             alt={weatherData && weatherData.weather[0].icon} />
                         </span>                        
                          <span className={`${home.weather_font}`} >{weatherData && weatherData.main.temp.toFixed()}<span></span>°</span>
-                        {/* <span>{weatherData && weatherData.weather[0].main}</span> */}
                     </div>
                     <span className={`${home.ml__auto} ${home.mt__1}`}>{weatherData && weatherData.name}</span>
                 </div>
                 {
                     name === null ?
-                        <Welcome captureKey={captureKey}/>
+                        <Welcome captureKey={setUserName}/>
                         :
                         <>
                             <Time name={name} />
-                            <Agenda  captureKey={captureKey}/>
+                            <Agenda  captureKey={setUserTask} userTask={task} />
                         </>
                 }
             </div>
