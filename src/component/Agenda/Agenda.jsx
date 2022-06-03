@@ -13,9 +13,9 @@ export const Agenda = ({captureKey,userTask}) => {
                     </>                    
                     :
                     <p className={`${agenda.font__size} ${agenda.flex}`}>
-                        <span class="material-icons-outlined">task</span>
+                        <span className="material-icons-outlined">task</span>
                         {`Task for today is ${userTask}`}
-                        <span class={`material-icons-outlined cursor ${agenda.pointer}`}>more_horiz</span>
+                        <span className={`material-icons-outlined cursor ${agenda.pointer}`}>more_horiz</span>
                     </p>
                 }
             </div>
