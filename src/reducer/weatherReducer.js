@@ -1,4 +1,10 @@
-export const initialState = {latitude:[], longitude:[], weatherData : {}}
+export const initialState = {
+        latitude:null, 
+        longitude:null, 
+        weatherData : null,
+        randomPicture:null, 
+        name:null
+}
 
 export const weatherReducer = (weatherState,{type,payload}) => {
     switch(type){
@@ -8,5 +14,9 @@ export const weatherReducer = (weatherState,{type,payload}) => {
                 return {...weatherState, longitude : payload}
         case "SET_WEATHER_DATA":
                 return {...weatherState, weatherData : payload}
+        case "SET_PICTURE":
+                return {...weatherState, randomPicture : payload}
+        case "SET_NAME":
+                return {...weatherState, name : payload}
     }
 }

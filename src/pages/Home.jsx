@@ -4,46 +4,53 @@ import { getRandomPhoto, getWeatherData } from "../services/weatherServices";
 import { Welcome } from "../component/Welcome/Welcome";
 import {Time} from "../component/Time/Time"
 import { Agenda } from "../component/Agenda/Agenda";
+import { Quote } from "../component/Quote/Quote"
+import {useToast} from "../customHooks/useToast"
 import home from "./home.module.css"
 
 export const Home = () =>{
-
-    //const[{latitude,longitude,weatherData}, dispatchWeather] = useReducer(weatherReducer,initialState)
-
-    const [latitude,setLatitude]=useState(null);
-    const [longitude,setLongitude]=useState(null);
-    const [weatherData,setWeatherData]=useState(null);
-    const [randomPicture, setRandomPicture] = useState(null)
-    const [name,setName] = useState(null);
-    const [task,setTask] = useState(null);
+    const { showToast } = useToast();
+    const[{latitude,longitude,weatherData,randomPicture,name}, dispatchWeather] = useReducer(weatherReducer,initialState)
 
     const setUserName = (e) => {
         let key = e.key
         if(key === 'Enter'){
-            setName(e.target.value)
-        }
-    }
-
-    const setUserTask = (e) => {
-        let key = e.key
-        if(key === 'Enter'){
-            setTask(e.target.value)
+            localStorage.setItem("name",e.target.value)
+            dispatchWeather({
+                type:"SET_NAME",
+                payload:e.target.value
+            })
         }
     }
    
     useEffect(()=>{
+        document.title = "Home";
+        const userName = localStorage.getItem("name");
+        if(userName!==null) {
+            dispatchWeather({ 
+                type:"SET_NAME",
+                payload:userName
+            })
+        }
+
         /** 
             Navigator is an interface that represents the state and identity of the user agent.
             Navigator property can also retrieved using window.navigator 
         **/
         navigator.geolocation.getCurrentPosition((position)=>{
-            setLatitude(position.coords.latitude)
-            setLongitude(position.coords.longitude)
+            dispatchWeather({
+                type:"SET_LATITUDE",
+                payload:position.coords.latitude
+            })
+            dispatchWeather({
+                type:"SET_LONGITUDE",
+                payload:position.coords.longitude
+            })
         })
 
-        getRandomPhoto(setRandomPicture);
+        getRandomPhoto(dispatchWeather,showToast);
         if(latitude && longitude){
-            getWeatherData(latitude,longitude,setWeatherData);
+            getWeatherData(latitude,longitude,dispatchWeather,showToast);
         }
     },[latitude,longitude])
 
@@ -67,7 +74,8 @@ export const Home = () =>{
                         :
                         <>
                             <Time name={name} />
-                            <Agenda  captureKey={setUserTask} userTask={task} />
+                            <Agenda />
+                            <Quote />
                         </>
                 }
             </div>
