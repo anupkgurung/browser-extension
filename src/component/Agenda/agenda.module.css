@@ -1,0 +1,17 @@
+.font__size {
+    font-size: 2rem;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pointer {
+    cursor: pointer;
+}
+.pl__1 {
+    padding-left: 1rem;
+}
+.pr__1 {
+    padding-right: 1rem;
+}
