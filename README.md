@@ -39,6 +39,6 @@ Tasky Extension
 
 ---
 
+![extension_](https://user-images.githubusercontent.com/31470135/172715556-eb51d04d-3783-4db2-b0af-33d5a0876670.gif)
 
-https://user-images.githubusercontent.com/31470135/172582908-90cbc8aa-05b7-4145-8a08-dcc9649a165b.mp4
 
