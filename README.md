@@ -39,4 +39,4 @@ Tasky Extension
 
 ---
 
-![tasky gif](/public/afterglow.mp4)
+![tasky](/public/extension.mp4)
