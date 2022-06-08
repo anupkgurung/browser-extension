@@ -39,4 +39,6 @@ Tasky Extension
 
 ---
 
-![tasky](/public/extension.mp4)
+
+https://user-images.githubusercontent.com/31470135/172582908-90cbc8aa-05b7-4145-8a08-dcc9649a165b.mp4
+
